@@ -1,671 +1,231 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Zenon — First-Year CE Summer Semester Plan</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=JetBrains+Mono:wght@300;400;500;600;700&family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
-    --navy:       #1B2A4A;
-    --crimson:    #8B1A1A;
-    --crimson-light: #A52020;
-    --bg:         #0D0D0D;
-    --surface:    #111827;
-    --surface2:   #161F30;
-    --text:       #E8E8E8;
-    --muted:      #C9D1D9;
-    --dim:        #8B949E;
-    --teal:       #0F4C5C;
-    --teal-light: #1A6B80;
-    --amber:      #7A4F00;
-    --amber-light:#B8750A;
-    --green:      #1A4731;
-    --green-light:#2D6A4F;
-    --border:     rgba(255,255,255,0.07);
+    --navy:#1B2A4A; --crimson:#8B1A1A; --crimson-light:#A52020;
+    --bg:#0D0D0D; --surface:#111827; --surface2:#161F30;
+    --text:#E8E8E8; --muted:#C9D1D9; --dim:#8B949E;
+    --teal-light:#1A6B80; --amber-light:#B8750A; --green-light:#2D6A4F;
+    --border:rgba(255,255,255,0.07);
+    --font-body:'JetBrains Mono',monospace;
+    --font-display:'Playfair Display',serif;
   }
+  html[lang="ar"] { --font-body:'Cairo',sans-serif; --font-display:'Cairo',sans-serif; }
 
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background-color:var(--bg);color:var(--text);font-family:var(--font-body);font-size:14px;line-height:1.7;overflow-x:hidden;position:relative;}
 
-  html { scroll-behavior: smooth; }
+  body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cg stroke='%23ffffff' stroke-width='0.8' fill='none' opacity='1'%3E%3Cline x1='0' y1='40' x2='60' y2='40'/%3E%3Cline x1='60' y1='40' x2='60' y2='10'/%3E%3Cline x1='60' y1='10' x2='120' y2='10'/%3E%3Cline x1='120' y1='10' x2='120' y2='70'/%3E%3Cline x1='120' y1='70' x2='200' y2='70'/%3E%3Cline x1='30' y1='40' x2='30' y2='100'/%3E%3Cline x1='30' y1='100' x2='90' y2='100'/%3E%3Cline x1='90' y1='100' x2='90' y2='140'/%3E%3Cline x1='90' y1='140' x2='160' y2='140'/%3E%3Cline x1='160' y1='140' x2='160' y2='100'/%3E%3Cline x1='160' y1='100' x2='200' y2='100'/%3E%3Cline x1='0' y1='160' x2='50' y2='160'/%3E%3Cline x1='50' y1='160' x2='50' y2='130'/%3E%3Cline x1='50' y1='130' x2='90' y2='130'/%3E%3Cline x1='150' y1='70' x2='150' y2='200'/%3E%3Cline x1='0' y1='190' x2='80' y2='190'/%3E%3Cline x1='80' y1='190' x2='80' y2='160'/%3E%3Ccircle cx='60' cy='40' r='2.5' fill='%23ffffff'/%3E%3Ccircle cx='120' cy='10' r='2.5' fill='%23ffffff'/%3E%3Ccircle cx='120' cy='70' r='2.5' fill='%23ffffff'/%3E%3Ccircle cx='30' cy='100' r='2.5' fill='%23ffffff'/%3E%3Ccircle cx='90' cy='100' r='2.5' fill='%23ffffff'/%3E%3Ccircle cx='90' cy='140' r='2.5' fill='%23ffffff'/%3E%3Ccircle cx='160' cy='140' r='2.5' fill='%23ffffff'/%3E%3Ccircle cx='160' cy='100' r='2.5' fill='%23ffffff'/%3E%3Ccircle cx='50' cy='160' r='2.5' fill='%23ffffff'/%3E%3Ccircle cx='150' cy='70' r='2.5' fill='%23ffffff'/%3E%3Ccircle cx='80' cy='190' r='2.5' fill='%23ffffff'/%3E%3C/g%3E%3C/svg%3E");background-size:200px 200px;opacity:0.04;pointer-events:none;z-index:0;}
 
-  body {
-    background-color: var(--bg);
-    color: var(--text);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 14px;
-    line-height: 1.7;
-    overflow-x: hidden;
-    position: relative;
-  }
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity 0.6s ease,transform 0.6s ease;}
+  .reveal.visible{opacity:1;transform:translateY(0);}
 
-  /* ── CIRCUIT BACKGROUND ── */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cg stroke='%23ffffff' stroke-width='0.8' fill='none' opacity='1'%3E%3Cline x1='0' y1='40' x2='60' y2='40'/%3E%3Cline x1='60' y1='40' x2='60' y2='10'/%3E%3Cline x1='60' y1='10' x2='120' y2='10'/%3E%3Cline x1='120' y1='10' x2='120' y2='70'/%3E%3Cline x1='120' y1='70' x2='200' y2='70'/%3E%3Cline x1='30' y1='40' x2='30' y2='100'/%3E%3Cline x1='30' y1='100' x2='90' y2='100'/%3E%3Cline x1='90' y1='100' x2='90' y2='140'/%3E%3Cline x1='90' y1='140' x2='160' y2='140'/%3E%3Cline x1='160' y1='140' x2='160' y2='100'/%3E%3Cline x1='160' y1='100' x2='200' y2='100'/%3E%3Cline x1='0' y1='160' x2='50' y2='160'/%3E%3Cline x1='50' y1='160' x2='50' y2='130'/%3E%3Cline x1='50' y1='130' x2='90' y2='130'/%3E%3Cline x1='150' y1='70' x2='150' y2='200'/%3E%3Cline x1='0' y1='190' x2='80' y2='190'/%3E%3Cline x1='80' y1='190' x2='80' y2='160'/%3E%3Ccircle cx='60' cy='40' r='2.5' fill='%23ffffff'/%3E%3Ccircle cx='120' cy='10' r='2.5' fill='%23ffffff'/%3E%3Ccircle cx='120' cy='70' r='2.5' fill='%23ffffff'/%3E%3Ccircle cx='30' cy='100' r='2.5' fill='%23ffffff'/%3E%3Ccircle cx='90' cy='100' r='2.5' fill='%23ffffff'/%3E%3Ccircle cx='90' cy='140' r='2.5' fill='%23ffffff'/%3E%3Ccircle cx='160' cy='140' r='2.5' fill='%23ffffff'/%3E%3Ccircle cx='160' cy='100' r='2.5' fill='%23ffffff'/%3E%3Ccircle cx='50' cy='160' r='2.5' fill='%23ffffff'/%3E%3Ccircle cx='150' cy='70' r='2.5' fill='%23ffffff'/%3E%3Ccircle cx='80' cy='190' r='2.5' fill='%23ffffff'/%3E%3C/g%3E%3C/svg%3E");
-    background-size: 200px 200px;
-    opacity: 0.04;
-    pointer-events: none;
-    z-index: 0;
-  }
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(13,13,13,0.92);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;height:52px;display:flex;align-items:center;justify-content:space-between;}
+  .nav-logo{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;letter-spacing:0.01em;position:relative;display:inline-block;padding-bottom:4px;}
+  .nav-logo::after{content:'';position:absolute;bottom:0;left:-2px;right:-2px;height:2.5px;background:var(--crimson);border-radius:2px;}
+  .nav-logo .z{color:var(--crimson);font-style:italic;}
+  .nav-logo .rest{color:#4A6FA5;}
+  .nav-right{display:flex;align-items:center;gap:1.5rem;}
+  nav ul{list-style:none;display:flex;gap:1.5rem;}
+  nav ul li a{color:var(--dim);text-decoration:none;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;transition:color 0.2s;font-family:var(--font-body);}
+  html[lang="ar"] nav ul li a{letter-spacing:0;font-size:0.82rem;}
+  nav ul li a:hover{color:var(--crimson);}
 
-  /* ── SCROLL-REVEAL ── */
-  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .lang-toggle{background:rgba(139,26,26,0.15);border:1px solid rgba(139,26,26,0.4);border-radius:20px;padding:0.28rem 0.9rem;cursor:pointer;font-size:0.72rem;font-family:var(--font-body);letter-spacing:0.08em;color:#F87171;text-transform:uppercase;transition:all 0.2s;white-space:nowrap;font-weight:600;}
+  .lang-toggle:hover{background:rgba(139,26,26,0.3);border-color:rgba(139,26,26,0.7);transform:translateY(-1px);}
 
-  /* ── NAV ── */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    background: rgba(13,13,13,0.92);
-    -webkit-backdrop-filter: blur(12px);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-    padding: 0 2rem;
-    height: 52px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  nav .nav-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: var(--navy);
-    letter-spacing: 0.01em;
-    position: relative;
-    display: inline-block;
-    padding-bottom: 4px;
-  }
-  nav .nav-logo::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: -2px; right: -2px;
-    height: 2.5px;
-    background: var(--crimson);
-    border-radius: 2px;
-  }
-  nav .nav-logo span.z { color: var(--crimson); }
-  nav .nav-logo span.rest { color: #4A6FA5; }
-  nav ul {
-    list-style: none;
-    display: flex;
-    gap: 1.5rem;
-  }
-  nav ul li a {
-    color: var(--dim);
-    text-decoration: none;
-    font-size: 0.72rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    transition: color 0.2s;
-  }
-  nav ul li a:hover { color: var(--crimson); }
+  main{position:relative;z-index:1;padding-top:52px;}
+  section{padding:5rem 0;}
+  .container{max-width:1100px;margin:0 auto;padding:0 2rem;}
 
-  /* ── MAIN WRAPPER ── */
-  main { position: relative; z-index: 1; padding-top: 52px; }
+  .section-title{font-family:var(--font-display);font-size:clamp(1.4rem,3vw,2rem);color:var(--crimson);text-transform:uppercase;letter-spacing:0.18em;margin-bottom:0.4rem;}
+  html[lang="ar"] .section-title{letter-spacing:0;}
+  .section-subtitle{color:var(--dim);font-size:0.78rem;letter-spacing:0.08em;margin-bottom:2.8rem;font-family:var(--font-body);}
+  html[lang="ar"] .section-subtitle{letter-spacing:0;font-size:0.88rem;}
+  .section-divider{width:48px;height:2px;background:var(--crimson);margin-bottom:2.5rem;}
+  html[dir="rtl"] .section-divider{margin-right:0;}
 
-  /* ── SECTION COMMONS ── */
-  section { padding: 5rem 0; }
-  .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.4rem, 3vw, 2rem);
-    color: var(--crimson);
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-    margin-bottom: 0.4rem;
-  }
-  .section-subtitle {
-    color: var(--dim);
-    font-size: 0.78rem;
-    letter-spacing: 0.08em;
-    margin-bottom: 2.8rem;
-  }
-  .section-divider {
-    width: 48px; height: 2px;
-    background: var(--crimson);
-    margin-bottom: 2.5rem;
-  }
+  /* HERO */
+  #hero{min-height:100vh;min-height:100svh;display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(180deg,#0D0D0D 0%,#0f1520 60%,#0D0D0D 100%);padding:6rem 2rem 4rem;position:relative;overflow:hidden;}
+  #hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--crimson),transparent);}
+  .hero-inner{max-width:800px;}
 
-  /* ── HERO ── */
-  #hero {
-    min-height: 100vh;
-    min-height: 100svh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: linear-gradient(180deg, #0D0D0D 0%, #0f1520 60%, #0D0D0D 100%);
-    padding: 6rem 2rem 4rem;
-    position: relative;
-    overflow: hidden;
-  }
-  #hero::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--crimson), transparent);
-  }
-  .hero-inner { max-width: 800px; }
+  .zenon-logo{display:inline-block;font-family:'Playfair Display',serif;font-size:clamp(3rem,8vw,5.5rem);font-weight:700;letter-spacing:-0.01em;line-height:1;position:relative;padding-bottom:10px;margin-bottom:0.5rem;}
+  .zenon-logo .z-letter{color:var(--crimson);font-style:italic;font-size:1.08em;}
+  .zenon-logo .rest-letters{color:#4A6FA5;}
+  .zenon-logo::after{content:'';position:absolute;bottom:0;left:-4%;right:-2%;height:4px;background:linear-gradient(90deg,var(--crimson) 0%,#6B1212 100%);border-radius:3px;-webkit-clip-path:polygon(0 0,100% 0,97% 100%,3% 100%);clip-path:polygon(0 0,100% 0,97% 100%,3% 100%);}
 
-  /* Zenon CSS Logo */
-  .zenon-logo {
-    display: inline-block;
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(3rem, 8vw, 5.5rem);
-    font-weight: 700;
-    letter-spacing: -0.01em;
-    line-height: 1;
-    position: relative;
-    padding-bottom: 10px;
-    margin-bottom: 0.5rem;
-  }
-  .zenon-logo .z-letter {
-    color: var(--crimson);
-    font-style: italic;
-    font-size: 1.08em;
-  }
-  .zenon-logo .rest-letters { color: #4A6FA5; }
-  .zenon-logo::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: -4%; right: -2%;
-    height: 4px;
-    background: linear-gradient(90deg, var(--crimson) 0%, #6B1212 100%);
-    border-radius: 3px;
-    -webkit-clip-path: polygon(0 0, 100% 0, 97% 100%, 3% 100%);
-    clip-path: polygon(0 0, 100% 0, 97% 100%, 3% 100%);
-  }
+  .hero-club-label{font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--dim);margin-bottom:2rem;font-family:var(--font-body);}
+  html[lang="ar"] .hero-club-label{letter-spacing:0;font-size:0.82rem;}
+  .hero-title{font-family:var(--font-display);font-size:clamp(1.6rem,4vw,2.8rem);font-weight:700;color:var(--text);line-height:1.2;margin-bottom:0.6rem;}
+  .hero-title span{color:var(--crimson);}
+  .hero-subtitle{font-size:0.78rem;color:var(--dim);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:1.8rem;font-family:var(--font-body);}
+  html[lang="ar"] .hero-subtitle{letter-spacing:0;font-size:0.88rem;}
+  .hero-byline{font-size:0.82rem;color:var(--muted);margin-bottom:0.5rem;font-family:var(--font-body);}
+  .hero-author-name{font-family:var(--font-display);font-size:clamp(1.25rem,3.5vw,1.9rem);font-weight:700;color:var(--text);letter-spacing:0.04em;margin-bottom:0.5rem;display:block;}
+  html[lang="ar"] .hero-author-name{letter-spacing:0;}
+  .hero-author-name span{color:var(--crimson);}
+  .hero-contributor-label{font-size:0.76rem;color:var(--dim);display:block;margin-top:0.5rem;margin-bottom:1.2rem;font-style:italic;font-family:var(--font-body);}
+  html[lang="ar"] .hero-contributor-label{font-style:normal;font-size:0.86rem;}
+  .hero-contributor-label strong{color:#f87171;font-style:normal;font-weight:600;}
+  .hero-note{font-size:0.73rem;color:var(--dim);font-style:italic;max-width:580px;margin:0 auto;padding:1rem 1.5rem;border:1px solid rgba(139,26,26,0.25);border-radius:6px;background:rgba(139,26,26,0.05);line-height:1.6;font-family:var(--font-body);}
+  html[lang="ar"] .hero-note{font-style:normal;font-size:0.84rem;}
+  .hero-scroll{margin-top:3rem;display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;}
+  .scroll-pill{font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--dim);border:1px solid var(--border);border-radius:20px;padding:0.35rem 1rem;text-decoration:none;transition:all 0.25s;background:rgba(255,255,255,0.02);font-family:var(--font-body);}
+  html[lang="ar"] .scroll-pill{letter-spacing:0;font-size:0.78rem;}
+  .scroll-pill:hover{color:var(--crimson);border-color:rgba(139,26,26,0.4);background:rgba(139,26,26,0.07);}
 
-  .hero-club-label {
-    font-size: 0.7rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--dim);
-    margin-bottom: 2rem;
-  }
+  /* CARDS */
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.5rem;transition:transform 0.25s ease,border-color 0.25s ease,box-shadow 0.25s ease;position:relative;overflow:hidden;}
+  .card::before{content:'';position:absolute;top:0;bottom:0;left:0;width:3px;background:transparent;transition:background 0.25s ease;border-radius:10px 0 0 10px;}
+  html[dir="rtl"] .card::before{left:auto;right:0;border-radius:0 10px 10px 0;}
+  .card:hover{transform:translateY(-3px);border-color:rgba(139,26,26,0.3);box-shadow:0 8px 32px rgba(139,26,26,0.1);}
+  .card:hover::before{background:var(--crimson);}
 
-  .hero-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.6rem, 4vw, 2.8rem);
-    font-weight: 700;
-    color: var(--text);
-    line-height: 1.2;
-    margin-bottom: 0.6rem;
-  }
-  .hero-title span { color: var(--crimson); }
+  /* PREREQUISITES */
+  #prerequisites{background:var(--surface2);}
+  .prereq-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;}
+  .prereq-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem 1.2rem;display:flex;align-items:center;gap:0.85rem;transition:transform 0.25s,border-color 0.25s,box-shadow 0.25s;}
+  .prereq-card:hover{transform:translateY(-3px);border-color:rgba(139,26,26,0.3);box-shadow:0 6px 20px rgba(139,26,26,0.08);}
+  .check-icon{width:28px;height:28px;min-width:28px;border-radius:50%;background:rgba(45,106,79,0.2);border:1px solid rgba(45,106,79,0.4);display:flex;align-items:center;justify-content:center;font-size:0.75rem;color:#4ade80;}
+  .prereq-label{font-size:0.78rem;color:var(--muted);font-family:var(--font-body);}
+  html[lang="ar"] .prereq-label{font-size:0.9rem;}
+  .prereq-special{border-color:rgba(139,26,26,0.3);background:rgba(139,26,26,0.05);}
+  .prereq-special .check-icon{background:rgba(139,26,26,0.15);border-color:rgba(139,26,26,0.4);color:#f87171;}
 
-  .hero-subtitle {
-    font-size: 0.78rem;
-    color: var(--dim);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    margin-bottom: 1.8rem;
-  }
+  /* SCENARIOS */
+  .scenarios-grid{display:flex;flex-direction:column;gap:1.5rem;}
+  .scenario-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:2rem;transition:transform 0.25s,border-color 0.25s,box-shadow 0.25s;position:relative;overflow:hidden;}
+  .scenario-card::before{content:'';position:absolute;top:0;bottom:0;left:0;width:4px;border-radius:12px 0 0 12px;}
+  html[dir="rtl"] .scenario-card::before{left:auto;right:0;border-radius:0 12px 12px 0;}
+  .scenario-card.recommended::before{background:var(--navy);}
+  .scenario-card.hard::before{background:var(--crimson);}
+  .scenario-card.moderate::before{background:var(--teal-light);}
+  .scenario-card.challenging::before{background:var(--amber-light);}
+  .scenario-card:hover{transform:translateY(-3px);box-shadow:0 10px 40px rgba(0,0,0,0.3);}
+  .scenario-header{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:0.6rem;flex-wrap:wrap;}
+  .scenario-letter{font-family:var(--font-display);font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--dim);margin-bottom:0.2rem;}
+  html[lang="ar"] .scenario-letter{letter-spacing:0;font-size:0.82rem;}
+  .scenario-title{font-family:var(--font-display);font-size:1.15rem;font-weight:700;color:var(--text);}
+  .badge{font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;padding:0.3rem 0.85rem;border-radius:20px;font-weight:600;white-space:nowrap;align-self:flex-start;font-family:var(--font-body);}
+  html[lang="ar"] .badge{letter-spacing:0;font-size:0.74rem;}
+  .badge-recommended{background:rgba(27,42,74,0.5);color:#7EAEF0;border:1px solid rgba(27,42,74,0.8);}
+  .badge-hard{background:rgba(139,26,26,0.25);color:#F87171;border:1px solid rgba(139,26,26,0.5);}
+  .badge-moderate{background:rgba(15,76,92,0.35);color:#67C5D9;border:1px solid rgba(15,76,92,0.6);}
+  .badge-challenging{background:rgba(122,79,0,0.3);color:#FBB041;border:1px solid rgba(184,117,10,0.5);}
+  .scenario-subtitle{font-size:0.76rem;color:var(--dim);font-style:italic;margin-bottom:1.2rem;font-family:var(--font-body);}
+  html[lang="ar"] .scenario-subtitle{font-style:normal;font-size:0.88rem;}
+  .courses-row{display:flex;flex-wrap:wrap;gap:0.6rem;margin-bottom:1rem;}
+  .course-pill{font-size:0.72rem;padding:0.35rem 0.9rem;border-radius:20px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);color:var(--muted);transition:background 0.2s;font-family:var(--font-body);}
+  html[lang="ar"] .course-pill{font-size:0.84rem;}
+  .course-pill.primary{background:rgba(27,42,74,0.3);border-color:rgba(74,111,165,0.35);color:#9EC5F5;}
+  .course-pill.optional{background:rgba(45,106,79,0.15);border-color:rgba(45,106,79,0.35);color:#86EFAC;}
+  .course-pill.warning-pill{background:rgba(139,26,26,0.12);border-color:rgba(139,26,26,0.3);color:#FCA5A5;}
+  .scenario-rationale{font-size:0.76rem;color:var(--dim);font-style:italic;line-height:1.6;padding-top:0.8rem;border-top:1px solid var(--border);font-family:var(--font-body);}
+  html[lang="ar"] .scenario-rationale{font-style:normal;font-size:0.88rem;}
+  .scenario-warning{margin-top:0.7rem;font-size:0.72rem;color:#FBB041;display:flex;gap:0.5rem;align-items:flex-start;font-style:italic;font-family:var(--font-body);}
+  html[lang="ar"] .scenario-warning{font-style:normal;font-size:0.84rem;}
+  .option-label{font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--crimson);margin:0.8rem 0 0.5rem;font-family:var(--font-body);}
+  html[lang="ar"] .option-label{letter-spacing:0;font-size:0.78rem;}
 
-  .hero-byline {
-    font-size: 0.82rem;
-    color: var(--muted);
-    margin-bottom: 0.5rem;
-  }
-  .hero-author-name {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.25rem, 3.5vw, 1.9rem);
-    font-weight: 700;
-    color: var(--text);
-    letter-spacing: 0.04em;
-    margin-bottom: 0.5rem;
-    display: block;
-  }
-  .hero-author-name span { color: var(--crimson); }
-  .hero-contributor-label {
-    font-size: 0.76rem;
-    letter-spacing: 0.06em;
-    color: var(--dim);
-    display: block;
-    margin-top: 0.5rem;
-    margin-bottom: 1.2rem;
-    font-style: italic;
-  }
-  .hero-contributor-label strong {
-    color: #f87171;
-    font-style: normal;
-    font-weight: 600;
-  }
+  /* COURSE NOTES */
+  .courses-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.2rem;}
+  .course-card-name{font-size:0.85rem;font-weight:600;color:var(--text);margin-bottom:0.6rem;display:flex;align-items:center;gap:0.5rem;font-family:var(--font-body);}
+  html[lang="ar"] .course-card-name{font-size:0.98rem;}
+  .course-dot{width:6px;height:6px;min-width:6px;border-radius:50%;background:var(--crimson);}
+  .course-card-desc{font-size:0.75rem;color:var(--dim);line-height:1.65;font-family:var(--font-body);}
+  html[lang="ar"] .course-card-desc{font-size:0.87rem;}
 
-  .hero-note {
-    font-size: 0.73rem;
-    color: var(--dim);
-    font-style: italic;
-    max-width: 580px;
-    margin: 0 auto;
-    padding: 1rem 1.5rem;
-    border: 1px solid rgba(139,26,26,0.25);
-    border-radius: 6px;
-    background: rgba(139,26,26,0.05);
-    line-height: 1.6;
-  }
+  /* WARNINGS */
+  .warning-panel{background:rgba(139,26,26,0.06);border:1px solid rgba(139,26,26,0.25);border-radius:14px;padding:2rem;}
+  .warning-header{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;}
+  .warning-icon{font-size:1.8rem;}
+  .warning-header-text{font-family:var(--font-display);font-size:1.2rem;font-weight:700;color:#F87171;}
+  .warning-cards{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-bottom:1.5rem;}
+  .warning-course-card{background:rgba(139,26,26,0.08);border:1px solid rgba(139,26,26,0.2);border-radius:10px;padding:1.2rem;}
+  .warning-course-name{font-size:0.82rem;font-weight:700;color:#FCA5A5;margin-bottom:0.6rem;font-family:var(--font-body);}
+  html[lang="ar"] .warning-course-name{font-size:0.96rem;}
+  .warning-course-desc{font-size:0.73rem;color:var(--dim);line-height:1.65;font-family:var(--font-body);}
+  html[lang="ar"] .warning-course-desc{font-size:0.86rem;}
+  .warning-personal{font-size:0.75rem;color:var(--muted);font-style:italic;line-height:1.7;border-top:1px solid rgba(139,26,26,0.15);padding-top:1.2rem;font-family:var(--font-body);}
+  html[lang="ar"] .warning-personal{font-style:normal;font-size:0.88rem;}
 
-  .hero-scroll {
-    margin-top: 3rem;
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-  .scroll-pill {
-    font-size: 0.68rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--dim);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 0.35rem 1rem;
-    text-decoration: none;
-    transition: all 0.25s;
-    background: rgba(255,255,255,0.02);
-  }
-  .scroll-pill:hover {
-    color: var(--crimson);
-    border-color: rgba(139,26,26,0.4);
-    background: rgba(139,26,26,0.07);
-  }
+  /* MINDSET */
+  .mindset-panel{background:var(--surface);border-left:4px solid var(--crimson);border-radius:0 10px 10px 0;padding:2rem 2rem 2rem 1.8rem;margin-bottom:2.5rem;}
+  html[dir="rtl"] .mindset-panel{border-left:none;border-right:4px solid var(--crimson);border-radius:10px 0 0 10px;padding:2rem 1.8rem 2rem 2rem;}
+  .mindset-bold{font-family:var(--font-display);font-size:1.15rem;font-weight:700;color:var(--text);margin-bottom:0.8rem;}
+  .mindset-body{font-size:0.78rem;color:var(--muted);line-height:1.8;font-family:var(--font-body);}
+  html[lang="ar"] .mindset-body{font-size:0.9rem;}
+  .principles-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.2rem;}
+  .principle-num{font-size:2rem;font-weight:700;color:rgba(139,26,26,0.25);line-height:1;margin-bottom:0.5rem;font-family:var(--font-display);}
+  .principle-title{font-size:0.9rem;font-weight:700;color:var(--text);margin-bottom:0.5rem;font-family:var(--font-body);}
+  html[lang="ar"] .principle-title{font-size:1.02rem;}
+  .principle-desc{font-size:0.74rem;color:var(--dim);line-height:1.65;font-family:var(--font-body);}
+  html[lang="ar"] .principle-desc{font-size:0.87rem;}
 
-  /* ── CARD BASE ── */
-  .card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 1.5rem;
-    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-    position: relative;
-    overflow: hidden;
-  }
-  .card::before {
-    content: '';
-    position: absolute;
-    left: 0; top: 0; bottom: 0;
-    width: 3px;
-    background: transparent;
-    transition: background 0.25s ease;
-    border-radius: 10px 0 0 10px;
-  }
-  .card:hover { transform: translateY(-3px); border-color: rgba(139,26,26,0.3); box-shadow: 0 8px 32px rgba(139,26,26,0.1); }
-  .card:hover::before { background: var(--crimson); }
+  /* FOOTER */
+  footer{position:relative;z-index:1;background:var(--surface2);border-top:1px solid var(--border);padding:3rem 2rem;text-align:center;display:flex;flex-direction:column;align-items:center;gap:1rem;}
+  footer::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,var(--crimson),transparent);}
+  .footer-logo{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;position:relative;display:inline-block;padding-bottom:6px;}
+  .footer-logo::after{content:'';position:absolute;bottom:0;left:-3%;right:-3%;height:2.5px;background:linear-gradient(90deg,var(--crimson),#6B1212);border-radius:2px;}
+  .footer-logo .z-letter{color:var(--crimson);font-style:italic;}
+  .footer-logo .rest-letters{color:#4A6FA5;}
+  .footer-copy{font-size:0.74rem;color:var(--dim);line-height:1.9;font-family:var(--font-body);}
+  html[lang="ar"] .footer-copy{font-size:0.88rem;}
+  .footer-copy span{color:var(--muted);}
+  .footer-bot{margin-top:0.8rem;display:inline-flex;align-items:center;gap:0.85rem;background:rgba(27,42,74,0.25);border:1px solid rgba(74,111,165,0.3);border-radius:12px;padding:0.9rem 1.6rem;text-decoration:none;transition:all 0.25s ease;cursor:pointer;}
+  .footer-bot:hover{background:rgba(27,42,74,0.45);border-color:rgba(74,111,165,0.6);transform:translateY(-2px);box-shadow:0 8px 24px rgba(27,42,74,0.3);}
+  .footer-bot-icon{width:36px;height:36px;min-width:36px;background:#2CA5E0;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;}
+  .footer-bot-text{text-align:left;}
+  html[dir="rtl"] .footer-bot-text{text-align:right;}
+  .footer-bot-label{font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--dim);display:block;margin-bottom:0.15rem;font-family:var(--font-body);}
+  html[lang="ar"] .footer-bot-label{letter-spacing:0;font-size:0.76rem;}
+  .footer-bot-name{font-size:0.9rem;font-weight:600;color:#7EAEF0;display:block;font-family:var(--font-body);}
 
-  /* ── PREREQUISITES ── */
-  #prerequisites { background: var(--surface2); }
-  .prereq-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; }
-  .prereq-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 1rem 1.2rem;
-    display: flex;
-    align-items: center;
-    gap: 0.85rem;
-    transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+  /* RESPONSIVE */
+  @media(max-width:640px){
+    nav ul{display:none;}
+    .prereq-grid{grid-template-columns:1fr 1fr;}
+    .scenario-card{padding:1.5rem;}
+    .courses-grid{grid-template-columns:1fr;}
+    .warning-cards{grid-template-columns:1fr;}
+    .principles-grid{grid-template-columns:1fr;}
+    .mindset-panel{padding:1.5rem 1.2rem 1.5rem 1rem;}
+    html[dir="rtl"] .mindset-panel{padding:1.5rem 1rem 1.5rem 1.2rem;}
+    .warning-panel{padding:1.5rem;}
   }
-  .prereq-card:hover { transform: translateY(-3px); border-color: rgba(139,26,26,0.3); box-shadow: 0 6px 20px rgba(139,26,26,0.08); }
-  .prereq-card:hover::before { display: none; }
-  .check-icon {
-    width: 28px; height: 28px; min-width: 28px;
-    border-radius: 50%;
-    background: rgba(45,106,79,0.2);
-    border: 1px solid rgba(45,106,79,0.4);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 0.75rem; color: #4ade80;
-  }
-  .prereq-label { font-size: 0.78rem; color: var(--muted); }
-  .prereq-special { border-color: rgba(139,26,26,0.3); background: rgba(139,26,26,0.05); }
-  .prereq-special .check-icon { background: rgba(139,26,26,0.15); border-color: rgba(139,26,26,0.4); color: #f87171; }
+  @media(max-width:380px){.prereq-grid{grid-template-columns:1fr;}}
 
-  /* ── SCENARIOS ── */
-  #roadmap { }
-  .scenarios-grid { display: flex; flex-direction: column; gap: 1.5rem; }
-
-  .scenario-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 2rem;
-    transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
-    position: relative;
-    overflow: hidden;
-  }
-  .scenario-card::before {
-    content: '';
-    position: absolute;
-    left: 0; top: 0; bottom: 0;
-    width: 4px;
-    border-radius: 12px 0 0 12px;
-  }
-  .scenario-card.recommended::before { background: var(--navy); }
-  .scenario-card.hard::before { background: var(--crimson); }
-  .scenario-card.moderate::before { background: var(--teal-light); }
-  .scenario-card.challenging::before { background: var(--amber-light); }
-  .scenario-card:hover { transform: translateY(-3px); box-shadow: 0 10px 40px rgba(0,0,0,0.3); }
-
-  .scenario-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 0.6rem; flex-wrap: wrap; }
-  .scenario-letter {
-    font-family: 'Playfair Display', serif;
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--dim);
-    margin-bottom: 0.2rem;
-  }
-  .scenario-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: var(--text);
-  }
-
-  /* Difficulty badges */
-  .badge {
-    font-size: 0.6rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    padding: 0.3rem 0.85rem;
-    border-radius: 20px;
-    font-weight: 600;
-    white-space: nowrap;
-    align-self: flex-start;
-  }
-  .badge-recommended { background: rgba(27,42,74,0.5); color: #7EAEF0; border: 1px solid rgba(27,42,74,0.8); }
-  .badge-hard { background: rgba(139,26,26,0.25); color: #F87171; border: 1px solid rgba(139,26,26,0.5); }
-  .badge-moderate { background: rgba(15,76,92,0.35); color: #67C5D9; border: 1px solid rgba(15,76,92,0.6); }
-  .badge-challenging { background: rgba(122,79,0,0.3); color: #FBB041; border: 1px solid rgba(184,117,10,0.5); }
-
-  .scenario-subtitle {
-    font-size: 0.76rem;
-    color: var(--dim);
-    font-style: italic;
-    margin-bottom: 1.2rem;
-  }
-
-  .courses-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 1rem; }
-  .course-pill {
-    font-size: 0.72rem;
-    padding: 0.35rem 0.9rem;
-    border-radius: 20px;
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.12);
-    color: var(--muted);
-    letter-spacing: 0.04em;
-    transition: background 0.2s, border-color 0.2s;
-  }
-  .course-pill.primary { background: rgba(27,42,74,0.3); border-color: rgba(74,111,165,0.35); color: #9EC5F5; }
-  .course-pill.optional { background: rgba(45,106,79,0.15); border-color: rgba(45,106,79,0.35); color: #86EFAC; }
-  .course-pill.warning-pill { background: rgba(139,26,26,0.12); border-color: rgba(139,26,26,0.3); color: #FCA5A5; }
-
-  .scenario-rationale {
-    font-size: 0.76rem;
-    color: var(--dim);
-    font-style: italic;
-    line-height: 1.6;
-    padding-top: 0.8rem;
-    border-top: 1px solid var(--border);
-  }
-  .scenario-warning {
-    margin-top: 0.7rem;
-    font-size: 0.72rem;
-    color: #FBB041;
-    display: flex;
-    gap: 0.5rem;
-    align-items: flex-start;
-    font-style: italic;
-  }
-
-  .option-label {
-    font-size: 0.65rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--dim);
-    margin-bottom: 0.4rem;
-    margin-top: 0.8rem;
-  }
-
-  /* ── COURSE NOTES ── */
-  #courses { background: var(--surface2); }
-  .courses-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.2rem; }
-  .course-card { }
-  .course-card-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 0.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-  }
-  .course-card-name .course-dot {
-    width: 7px; height: 7px;
-    border-radius: 50%;
-    background: var(--crimson);
-    min-width: 7px;
-  }
-  .course-card-desc { font-size: 0.76rem; color: var(--muted); font-style: italic; line-height: 1.65; }
-
-  /* ── WARNING ── */
-  #warnings { }
-  .warning-panel {
-    border: 1px solid rgba(139,26,26,0.5);
-    border-radius: 12px;
-    background: rgba(139,26,26,0.04);
-    padding: 2.5rem;
-  }
-  .warning-header {
-    display: flex; align-items: center; gap: 1rem;
-    margin-bottom: 2rem;
-    padding-bottom: 1.2rem;
-    border-bottom: 1px solid rgba(139,26,26,0.25);
-  }
-  .warning-icon {
-    font-size: 1.8rem;
-    line-height: 1;
-  }
-  .warning-header-text {
-    font-family: 'Playfair Display', serif;
-    font-size: 1rem;
-    font-weight: 700;
-    color: #F87171;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-  }
-  .warning-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.2rem; margin-bottom: 1.5rem; }
-  .warning-course-card {
-    background: rgba(139,26,26,0.08);
-    border: 1px solid rgba(139,26,26,0.3);
-    border-radius: 10px;
-    padding: 1.4rem;
-    transition: transform 0.25s, box-shadow 0.25s;
-  }
-  .warning-course-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(139,26,26,0.15); }
-  .warning-course-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 0.98rem;
-    font-weight: 700;
-    color: #F87171;
-    margin-bottom: 0.6rem;
-  }
-  .warning-course-desc { font-size: 0.76rem; color: var(--muted); line-height: 1.65; }
-  .warning-personal {
-    font-size: 0.76rem;
-    color: var(--dim);
-    font-style: italic;
-    padding-top: 1.2rem;
-    border-top: 1px solid rgba(139,26,26,0.2);
-    line-height: 1.7;
-  }
-
-  /* ── MINDSET ── */
-  #mindset { background: var(--surface2); }
-  .mindset-panel {
-    border-left: 4px solid var(--crimson);
-    padding: 2.5rem 2.5rem 2.5rem 2rem;
-    background: var(--surface);
-    border-radius: 0 12px 12px 0;
-    margin-bottom: 2.5rem;
-  }
-  .mindset-bold {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: var(--text);
-    margin-bottom: 1rem;
-  }
-  .mindset-body {
-    font-size: 0.82rem;
-    color: var(--muted);
-    line-height: 1.8;
-    max-width: 780px;
-  }
-  .principles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.2rem; }
-  .principle-card { }
-  .principle-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 2rem;
-    font-weight: 900;
-    color: rgba(139,26,26,0.25);
-    line-height: 1;
-    margin-bottom: 0.4rem;
-  }
-  .principle-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 0.92rem;
-    font-weight: 700;
-    color: var(--text);
-    margin-bottom: 0.4rem;
-  }
-  .principle-desc { font-size: 0.75rem; color: var(--muted); line-height: 1.65; font-style: italic; }
-
-  /* ── FOOTER ── */
-  footer {
-    position: relative;
-    z-index: 1;
-    padding: 2.5rem 2rem;
-    text-align: center;
-    background: var(--bg);
-  }
-  footer::before {
-    content: '';
-    display: block;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--crimson), transparent);
-    margin-bottom: 2rem;
-  }
-  .footer-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
-    font-weight: 700;
-    position: relative;
-    display: inline-block;
-    padding-bottom: 5px;
-    margin-bottom: 0.8rem;
-  }
-  .footer-logo::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: -3px; right: -3px;
-    height: 2px;
-    background: var(--crimson);
-    border-radius: 2px;
-  }
-  .footer-logo .z-letter { color: var(--crimson); font-style: italic; }
-  .footer-logo .rest-letters { color: #4A6FA5; }
-  .footer-copy {
-    font-size: 0.72rem;
-    color: var(--dim);
-    line-height: 1.8;
-  }
-  .footer-bot {
-    margin-top: 1.8rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.85rem;
-    background: rgba(27,42,74,0.25);
-    border: 1px solid rgba(74,111,165,0.3);
-    border-radius: 12px;
-    padding: 0.9rem 1.6rem;
-    text-decoration: none;
-    transition: all 0.25s ease;
-    cursor: pointer;
-  }
-  .footer-bot:hover {
-    background: rgba(27,42,74,0.45);
-    border-color: rgba(74,111,165,0.6);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(27,42,74,0.3);
-  }
-  .footer-bot-icon {
-    width: 36px; height: 36px; min-width: 36px;
-    background: #2CA5E0;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.1rem;
-  }
-  .footer-bot-text { text-align: left; }
-  .footer-bot-label {
-    font-size: 0.62rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--dim);
-    display: block;
-    margin-bottom: 0.15rem;
-  }
-  .footer-bot-name {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: #7EAEF0;
-    display: block;
-    letter-spacing: 0.02em;
-  }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 640px) {
-    nav ul { display: none; }
-    .prereq-grid { grid-template-columns: 1fr 1fr; }
-    .scenario-card { padding: 1.5rem; }
-    .courses-grid { grid-template-columns: 1fr; }
-    .warning-cards { grid-template-columns: 1fr; }
-    .principles-grid { grid-template-columns: 1fr; }
-    .mindset-panel { padding: 1.5rem 1.2rem 1.5rem 1rem; }
-    .warning-panel { padding: 1.5rem; }
-  }
-  @media (max-width: 380px) {
-    .prereq-grid { grid-template-columns: 1fr; }
-  }
-
-  /* Stagger delays */
-  .stagger-1 { transition-delay: 0.05s; }
-  .stagger-2 { transition-delay: 0.12s; }
-  .stagger-3 { transition-delay: 0.19s; }
-  .stagger-4 { transition-delay: 0.26s; }
-  .stagger-5 { transition-delay: 0.33s; }
-  .stagger-6 { transition-delay: 0.40s; }
-  .stagger-7 { transition-delay: 0.47s; }
+  .stagger-1{transition-delay:0.05s;}
+  .stagger-2{transition-delay:0.12s;}
+  .stagger-3{transition-delay:0.19s;}
+  .stagger-4{transition-delay:0.26s;}
+  .stagger-5{transition-delay:0.33s;}
+  .stagger-6{transition-delay:0.40s;}
+  .stagger-7{transition-delay:0.47s;}
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-logo"><span class="z">Z</span><span class="rest">enon</span></div>
-  <ul>
-    <li><a href="#prerequisites">Prerequisites</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#courses">Courses</a></li>
-    <li><a href="#warnings">Warnings</a></li>
-    <li><a href="#mindset">Mindset</a></li>
-  </ul>
+  <div class="nav-right">
+    <ul>
+      <li><a href="#prerequisites" data-en="Prerequisites" data-ar="المتطلبات">Prerequisites</a></li>
+      <li><a href="#roadmap" data-en="Roadmap" data-ar="خارطة الطريق">Roadmap</a></li>
+      <li><a href="#courses" data-en="Courses" data-ar="المواد">Courses</a></li>
+      <li><a href="#warnings" data-en="Warnings" data-ar="التحذيرات">Warnings</a></li>
+      <li><a href="#mindset" data-en="Mindset" data-ar="العقلية">Mindset</a></li>
+    </ul>
+    <button class="lang-toggle" id="langToggle" onclick="toggleLang()">عربي</button>
+  </div>
 </nav>
 
 <main>
@@ -675,30 +235,24 @@
   <div class="hero-inner">
     <div class="reveal">
       <div class="zenon-logo"><span class="z-letter">Z</span><span class="rest-letters">enon</span></div>
-      <div class="hero-club-label">Engineering Club</div>
+      <div class="hero-club-label" data-en="Engineering Club" data-ar="نادي الهندسة">Engineering Club</div>
     </div>
-
     <div class="reveal stagger-1">
-      <h1 class="hero-title">First-Year Computer Engineering<br><span>Summer Semester Plan</span></h1>
-      <div class="hero-subtitle">Academic Roadmap &nbsp;·&nbsp; Summer 2026</div>
+      <h1 class="hero-title" data-en="First-Year Computer Engineering<br><span>Summer Semester Plan</span>" data-ar="خطة الفصل الصيفي<br><span>هندسة الحاسوب — السنة الأولى</span>">First-Year Computer Engineering<br><span>Summer Semester Plan</span></h1>
+      <div class="hero-subtitle" data-en="Academic Roadmap &nbsp;·&nbsp; Summer 2026" data-ar="الخارطة الأكاديمية &nbsp;·&nbsp; صيف 2026">Academic Roadmap &nbsp;·&nbsp; Summer 2026</div>
     </div>
-
     <div class="reveal stagger-2">
-      <div class="hero-byline">Crafted in collaboration with Zenon</div>
+      <div class="hero-byline" data-en="Crafted in collaboration with Zenon" data-ar="أُعدّت بالتعاون مع زينون">Crafted in collaboration with Zenon</div>
       <span class="hero-author-name"><span>Eng.</span> Mohammad H. Tailakh</span>
-      <div class="hero-contributor-label">Independent contributor — <strong>not a member of Zenon</strong></div>
-      <div class="hero-note">
-        This plan is authored by a student recognized for taking the most demanding course combinations
-        in the department — these recommendations are earned, not theoretical.
-      </div>
+      <div class="hero-contributor-label" data-en="Independent contributor — <strong>not a member of Zenon</strong>" data-ar="مساهم مستقل — <strong>ليس عضواً في نادي زينون</strong>">Independent contributor — <strong>not a member of Zenon</strong></div>
+      <div class="hero-note" data-en="This plan is authored by a student recognized for taking the most demanding course combinations in the department — these recommendations are earned, not theoretical." data-ar="هذه الخطة أعدّها طالب معروف بأخذ أصعب تركيبات المقررات في القسم — هذه التوصيات مبنية على تجربة حقيقية، لا على النظرية.">This plan is authored by a student recognized for taking the most demanding course combinations in the department — these recommendations are earned, not theoretical.</div>
     </div>
-
     <div class="hero-scroll reveal stagger-3">
-      <a href="#prerequisites" class="scroll-pill">Prerequisites</a>
-      <a href="#roadmap" class="scroll-pill">Roadmap</a>
-      <a href="#courses" class="scroll-pill">Courses</a>
-      <a href="#warnings" class="scroll-pill">Warnings</a>
-      <a href="#mindset" class="scroll-pill">Mindset</a>
+      <a href="#prerequisites" class="scroll-pill" data-en="Prerequisites" data-ar="المتطلبات">Prerequisites</a>
+      <a href="#roadmap" class="scroll-pill" data-en="Roadmap" data-ar="خارطة الطريق">Roadmap</a>
+      <a href="#courses" class="scroll-pill" data-en="Courses" data-ar="المواد">Courses</a>
+      <a href="#warnings" class="scroll-pill" data-en="Warnings" data-ar="التحذيرات">Warnings</a>
+      <a href="#mindset" class="scroll-pill" data-en="Mindset" data-ar="العقلية">Mindset</a>
     </div>
   </div>
 </section>
@@ -706,38 +260,19 @@
 <!-- PREREQUISITES -->
 <section id="prerequisites">
   <div class="container">
-    <div class="reveal"><div class="section-title">Before You Enter This Semester</div></div>
-    <div class="reveal"><div class="section-subtitle">Required foundations — verify every item before registering</div></div>
+    <div class="reveal"><div class="section-title" data-en="Before You Enter This Semester" data-ar="قبل البدء بهذا الفصل">Before You Enter This Semester</div></div>
+    <div class="reveal"><div class="section-subtitle" data-en="Required foundations — verify every item before registering" data-ar="الأساسيات المطلوبة — تحقق من كل بند قبل التسجيل">Required foundations — verify every item before registering</div></div>
     <div class="reveal"><div class="section-divider"></div></div>
-
     <div class="prereq-grid">
-      <div class="prereq-card reveal stagger-1">
-        <div class="check-icon">✓</div>
-        <div class="prereq-label">Calculus 1</div>
-      </div>
-      <div class="prereq-card reveal stagger-2">
-        <div class="check-icon">✓</div>
-        <div class="prereq-label">Calculus 2</div>
-      </div>
-      <div class="prereq-card reveal stagger-3">
-        <div class="check-icon">✓</div>
-        <div class="prereq-label">Physics 1</div>
-      </div>
-      <div class="prereq-card reveal stagger-4">
-        <div class="check-icon">✓</div>
-        <div class="prereq-label">Physics 2</div>
-      </div>
-      <div class="prereq-card reveal stagger-5">
-        <div class="check-icon">✓</div>
-        <div class="prereq-label">Chemistry 1</div>
-      </div>
-      <div class="prereq-card reveal stagger-6">
-        <div class="check-icon">✓</div>
-        <div class="prereq-label">Computer Skills for Engineers</div>
-      </div>
-      <div class="prereq-card prereq-special reveal stagger-7" style="grid-column: span 1;">
-        <div class="check-icon" style="color:#FBB041; background:rgba(122,79,0,0.15); border-color:rgba(184,117,10,0.4);">≥</div>
-        <div class="prereq-label">Minimum 25 credit hours completed <span style="color:var(--dim); font-size:0.7em;">(English courses excluded)</span></div>
+      <div class="prereq-card reveal stagger-1"><div class="check-icon">✓</div><div class="prereq-label" data-en="Calculus 1" data-ar="تفاضل وتكامل 1">Calculus 1</div></div>
+      <div class="prereq-card reveal stagger-2"><div class="check-icon">✓</div><div class="prereq-label" data-en="Calculus 2" data-ar="تفاضل وتكامل 2">Calculus 2</div></div>
+      <div class="prereq-card reveal stagger-3"><div class="check-icon">✓</div><div class="prereq-label" data-en="Physics 1" data-ar="فيزياء 1">Physics 1</div></div>
+      <div class="prereq-card reveal stagger-4"><div class="check-icon">✓</div><div class="prereq-label" data-en="Physics 2" data-ar="فيزياء 2">Physics 2</div></div>
+      <div class="prereq-card reveal stagger-5"><div class="check-icon">✓</div><div class="prereq-label" data-en="Chemistry 1" data-ar="كيمياء 1">Chemistry 1</div></div>
+      <div class="prereq-card reveal stagger-6"><div class="check-icon">✓</div><div class="prereq-label" data-en="Computer Skills for Engineers" data-ar="مهارات الحاسوب للمهندسين">Computer Skills for Engineers</div></div>
+      <div class="prereq-card prereq-special reveal stagger-7">
+        <div class="check-icon" style="color:#FBB041;background:rgba(122,79,0,0.15);border-color:rgba(184,117,10,0.4);">≥</div>
+        <div class="prereq-label" data-en='Minimum 25 credit hours completed <span style="color:var(--dim);font-size:0.7em;">(English courses excluded)</span>' data-ar='25 ساعة معتمدة على الأقل <span style="color:var(--dim);font-size:0.85em;">(باستثناء مواد اللغة الإنجليزية)</span>'>Minimum 25 credit hours completed <span style="color:var(--dim);font-size:0.7em;">(English courses excluded)</span></div>
       </div>
     </div>
   </div>
@@ -746,127 +281,105 @@
 <!-- ROADMAP -->
 <section id="roadmap">
   <div class="container">
-    <div class="reveal"><div class="section-title">Your Summer Roadmap</div></div>
-    <div class="reveal"><div class="section-subtitle">Five scenarios mapped to your current standing — find yours and follow it</div></div>
+    <div class="reveal"><div class="section-title" data-en="Your Summer Roadmap" data-ar="خارطة طريقك الصيفية">Your Summer Roadmap</div></div>
+    <div class="reveal"><div class="section-subtitle" data-en="Five scenarios mapped to your current standing — find yours and follow it" data-ar="خمسة سيناريوهات مبنية على وضعك الحالي — ابحث عن سيناريوك واتّبعه">Five scenarios mapped to your current standing — find yours and follow it</div></div>
     <div class="reveal"><div class="section-divider"></div></div>
-
     <div class="scenarios-grid">
 
-      <!-- SCENARIO A -->
       <div class="scenario-card recommended reveal">
-        <div class="scenario-letter">Scenario A</div>
+        <div class="scenario-letter" data-en="Scenario A" data-ar="السيناريو أ">Scenario A</div>
         <div class="scenario-header">
-          <div class="scenario-title">Standard Recommended</div>
-          <span class="badge badge-recommended">Recommended</span>
+          <div class="scenario-title" data-en="Standard Recommended" data-ar="الخطة القياسية الموصى بها">Standard Recommended</div>
+          <span class="badge badge-recommended" data-en="Recommended" data-ar="موصى به">Recommended</span>
         </div>
-        <div class="scenario-subtitle">You have completed all prerequisites above.</div>
+        <div class="scenario-subtitle" data-en="You have completed all prerequisites above." data-ar="أتممت جميع المتطلبات المذكورة أعلاه.">You have completed all prerequisites above.</div>
         <div class="courses-row">
-          <span class="course-pill primary">Calculus 3</span>
-          <span class="course-pill primary">Electric Circuits</span>
-          <span class="course-pill primary">Elective of Your Choice</span>
+          <span class="course-pill primary" data-en="Calculus 3" data-ar="تفاضل وتكامل 3">Calculus 3</span>
+          <span class="course-pill primary" data-en="Electric Circuits" data-ar="الدوائر الكهربائية">Electric Circuits</span>
+          <span class="course-pill primary" data-en="Elective of Your Choice" data-ar="مادة اختيارية">Elective of Your Choice</span>
         </div>
-        <div class="option-label">Optional Add-on</div>
+        <div class="option-label" data-en="Optional Add-on" data-ar="إضافة اختيارية">Optional Add-on</div>
         <div class="courses-row">
-          <span class="course-pill optional">Physics Lab 1</span>
-          <span class="course-pill optional">Physics Lab 2</span>
+          <span class="course-pill optional" data-en="Physics Lab 1" data-ar="مختبر فيزياء 1">Physics Lab 1</span>
+          <span class="course-pill optional" data-en="Physics Lab 2" data-ar="مختبر فيزياء 2">Physics Lab 2</span>
         </div>
-        <div class="scenario-warning">
-          <span>⚠</span>
-          <span>Adding a lab may result in 4 consecutive finals — manageable with consistent study throughout the semester.</span>
-        </div>
-        <div class="scenario-rationale">
-          The canonical first-year summer load. Electric Circuits unlocks the most downstream courses in the ECE tree; Calculus 3 feeds directly into Electromagnetics and Signals. This is the configuration that builds the strongest foundation for your second year.
-        </div>
+        <div class="scenario-warning"><span>⚠</span><span data-en="Adding a lab may result in 4 consecutive finals — manageable with consistent study throughout the semester." data-ar="إضافة المختبر قد تُفضي إلى 4 امتحانات نهائية متتالية — قابلة للتحكم مع الدراسة المنتظمة طوال الفصل.">Adding a lab may result in 4 consecutive finals — manageable with consistent study throughout the semester.</span></div>
+        <div class="scenario-rationale" data-en="The canonical first-year summer load. Electric Circuits unlocks the most downstream courses in the ECE tree; Calculus 3 feeds directly into Electromagnetics and Signals. This is the configuration that builds the strongest foundation for your second year." data-ar="الحمل القياسي لصيف السنة الأولى. الدوائر الكهربائية تفتح أكثر المواد اللاحقة في شجرة الهندسة؛ وتفاضل وتكامل 3 يُغذّي مباشرةً الكهرومغناطيسية والإشارات. هذا هو التكوين الذي يبني أقوى أساس لسنتك الثانية.">The canonical first-year summer load. Electric Circuits unlocks the most downstream courses in the ECE tree; Calculus 3 feeds directly into Electromagnetics and Signals. This is the configuration that builds the strongest foundation for your second year.</div>
       </div>
 
-      <!-- SCENARIO B -->
       <div class="scenario-card hard reveal">
-        <div class="scenario-letter">Scenario B</div>
+        <div class="scenario-letter" data-en="Scenario B" data-ar="السيناريو ب">Scenario B</div>
         <div class="scenario-header">
-          <div class="scenario-title">Maximum Challenge</div>
-          <span class="badge badge-hard">Hard</span>
+          <div class="scenario-title" data-en="Maximum Challenge" data-ar="التحدي الأقصى">Maximum Challenge</div>
+          <span class="badge badge-hard" data-en="Hard" data-ar="صعب">Hard</span>
         </div>
-        <div class="scenario-subtitle">You want to push to the absolute limit.</div>
+        <div class="scenario-subtitle" data-en="You want to push to the absolute limit." data-ar="تريد الدفع إلى الحد الأقصى.">You want to push to the absolute limit.</div>
         <div class="courses-row">
-          <span class="course-pill primary">Calculus 3</span>
-          <span class="course-pill warning-pill">Electric Circuits</span>
-          <span class="course-pill warning-pill">Digital Logic</span>
+          <span class="course-pill primary" data-en="Calculus 3" data-ar="تفاضل وتكامل 3">Calculus 3</span>
+          <span class="course-pill warning-pill" data-en="Electric Circuits" data-ar="الدوائر الكهربائية">Electric Circuits</span>
+          <span class="course-pill warning-pill" data-en="Digital Logic" data-ar="المنطق الرقمي">Digital Logic</span>
         </div>
-        <div class="scenario-warning">
-          <span>⚠</span>
-          <span>This is the hardest valid first-year combination. Only attempt if your study habits are already consistent and structured — not if you are planning to build them during this semester.</span>
-        </div>
-        <div class="scenario-rationale">
-          Three analytically demanding courses simultaneously. Electric Circuits is mathematically intensive; Digital Logic requires a different mode of thinking. Both reward deep understanding over memorisation. Do not register for this configuration as a test of willpower.
-        </div>
+        <div class="scenario-warning"><span>⚠</span><span data-en="This is the hardest valid first-year combination. Only attempt if your study habits are already consistent and structured — not if you are planning to build them during this semester." data-ar="هذا أصعب تركيب صالح لطالب السنة الأولى. لا تحاوله إلا إذا كانت عادات دراستك منتظمة ومنظمة بالفعل — لا إذا كنت تخطط لبنائها خلال هذا الفصل.">This is the hardest valid first-year combination. Only attempt if your study habits are already consistent and structured.</span></div>
+        <div class="scenario-rationale" data-en="Three analytically demanding courses simultaneously. Electric Circuits is mathematically intensive; Digital Logic requires a different mode of thinking. Both reward deep understanding over memorisation. Do not register for this configuration as a test of willpower." data-ar="ثلاث مواد تحليلية مطلوبة معاً. الدوائر الكهربائية مكثفة رياضياً؛ والمنطق الرقمي يتطلب نمطاً مختلفاً من التفكير. كلتاهما تكافئ الفهم العميق على الحفظ. لا تسجّل في هذا التكوين كاختبار للإرادة.">Three analytically demanding courses simultaneously. Electric Circuits is mathematically intensive; Digital Logic requires a different mode of thinking. Both reward deep understanding over memorisation.</div>
       </div>
 
-      <!-- SCENARIO C -->
       <div class="scenario-card moderate reveal">
-        <div class="scenario-letter">Scenario C</div>
+        <div class="scenario-letter" data-en="Scenario C" data-ar="السيناريو ج">Scenario C</div>
         <div class="scenario-header">
-          <div class="scenario-title">Missing Computer Skills</div>
-          <span class="badge badge-moderate">Moderate</span>
+          <div class="scenario-title" data-en="Missing Computer Skills" data-ar="لم تأخذ مهارات الحاسوب بعد">Missing Computer Skills</div>
+          <span class="badge badge-moderate" data-en="Moderate" data-ar="متوسط">Moderate</span>
         </div>
-        <div class="scenario-subtitle">You have not yet taken Computer Skills for Engineers.</div>
+        <div class="scenario-subtitle" data-en="You have not yet taken Computer Skills for Engineers." data-ar="لم تأخذ مادة مهارات الحاسوب للمهندسين بعد.">You have not yet taken Computer Skills for Engineers.</div>
         <div class="courses-row">
-          <span class="course-pill primary">Electric Circuits</span>
-          <span class="course-pill primary">Computer Skills for Engineers</span>
-          <span class="course-pill primary">Elective of Your Choice</span>
+          <span class="course-pill primary" data-en="Electric Circuits" data-ar="الدوائر الكهربائية">Electric Circuits</span>
+          <span class="course-pill primary" data-en="Computer Skills for Engineers" data-ar="مهارات الحاسوب للمهندسين">Computer Skills for Engineers</span>
+          <span class="course-pill primary" data-en="Elective of Your Choice" data-ar="مادة اختيارية">Elective of Your Choice</span>
         </div>
-        <div class="scenario-rationale">
-          Computer Skills for Engineers is a gateway course with registration dependencies downstream. Clearing it this summer ensures it does not block your registration in future semesters. Pair it with Electric Circuits and a manageable elective to maintain momentum.
-        </div>
+        <div class="scenario-rationale" data-en="Computer Skills for Engineers is a gateway course with registration dependencies downstream. Clearing it this summer ensures it does not block your registration in future semesters." data-ar="مهارات الحاسوب للمهندسين مادة بوابة لها تبعيات تسجيل لاحقة. إنهاؤها هذا الصيف يضمن عدم تعطيل تسجيلك في الفصول القادمة.">Computer Skills for Engineers is a gateway course with registration dependencies downstream. Clearing it this summer ensures it does not block your registration in future semesters.</div>
       </div>
 
-      <!-- SCENARIO D -->
       <div class="scenario-card moderate reveal">
-        <div class="scenario-letter">Scenario D</div>
+        <div class="scenario-letter" data-en="Scenario D" data-ar="السيناريو د">Scenario D</div>
         <div class="scenario-header">
-          <div class="scenario-title">Missing Physics 2</div>
-          <span class="badge badge-moderate">Moderate</span>
+          <div class="scenario-title" data-en="Missing Physics 2" data-ar="لم تأخذ فيزياء 2 بعد">Missing Physics 2</div>
+          <span class="badge badge-moderate" data-en="Moderate" data-ar="متوسط">Moderate</span>
         </div>
-        <div class="scenario-subtitle">You have not yet taken Physics 2.</div>
-        <div class="option-label">Option 1 — Standard</div>
+        <div class="scenario-subtitle" data-en="You have not yet taken Physics 2." data-ar="لم تأخذ فيزياء 2 بعد.">You have not yet taken Physics 2.</div>
+        <div class="option-label" data-en="Option 1 — Standard" data-ar="الخيار 1 — القياسي">Option 1 — Standard</div>
         <div class="courses-row">
-          <span class="course-pill primary">Physics 2</span>
-          <span class="course-pill primary">Calculus 3</span>
-          <span class="course-pill primary">Elective</span>
+          <span class="course-pill primary" data-en="Physics 2" data-ar="فيزياء 2">Physics 2</span>
+          <span class="course-pill primary" data-en="Calculus 3" data-ar="تفاضل وتكامل 3">Calculus 3</span>
+          <span class="course-pill primary" data-en="Elective" data-ar="مادة اختيارية">Elective</span>
         </div>
-        <div class="option-label">Option 2 — Technical Lean</div>
+        <div class="option-label" data-en="Option 2 — Technical Lean" data-ar="الخيار 2 — التقني">Option 2 — Technical Lean</div>
         <div class="courses-row">
-          <span class="course-pill primary">Physics 2</span>
-          <span class="course-pill primary">Digital Logic</span>
-          <span class="course-pill primary">Elective</span>
+          <span class="course-pill primary" data-en="Physics 2" data-ar="فيزياء 2">Physics 2</span>
+          <span class="course-pill primary" data-en="Digital Logic" data-ar="المنطق الرقمي">Digital Logic</span>
+          <span class="course-pill primary" data-en="Elective" data-ar="مادة اختيارية">Elective</span>
         </div>
-        <div class="scenario-rationale">
-          Physics 2 is a co-requisite or prerequisite for Electric Circuits at most universities. Clear it this summer so it does not create a scheduling bottleneck. Choose Option 2 if you want early exposure to the digital side of the ECE tree.
-        </div>
+        <div class="scenario-rationale" data-en="Physics 2 is a co-requisite or prerequisite for Electric Circuits. Clear it this summer so it does not create a scheduling bottleneck. Choose Option 2 if you want early exposure to the digital side of the ECE tree." data-ar="فيزياء 2 هي متطلب مشترك أو سابق للدوائر الكهربائية. أنهِها هذا الصيف حتى لا تخلق اختناقاً في جدولك. اختر الخيار 2 إذا أردت التعرف المبكر على الجانب الرقمي من شجرة الهندسة.">Physics 2 is a co-requisite or prerequisite for Electric Circuits. Clear it this summer so it does not create a scheduling bottleneck.</div>
       </div>
 
-      <!-- SCENARIO E -->
       <div class="scenario-card challenging reveal">
-        <div class="scenario-letter">Scenario E</div>
+        <div class="scenario-letter" data-en="Scenario E" data-ar="السيناريو هـ">Scenario E</div>
         <div class="scenario-header">
-          <div class="scenario-title">Missing Physics 2 and Computer Skills</div>
-          <span class="badge badge-challenging">Challenging</span>
+          <div class="scenario-title" data-en="Missing Physics 2 and Computer Skills" data-ar="لم تأخذ فيزياء 2 ومهارات الحاسوب بعد">Missing Physics 2 and Computer Skills</div>
+          <span class="badge badge-challenging" data-en="Challenging" data-ar="تحدٍّ">Challenging</span>
         </div>
-        <div class="scenario-subtitle">You have not yet taken Physics 2 or Computer Skills for Engineers.</div>
-        <div class="option-label">Standard</div>
+        <div class="scenario-subtitle" data-en="You have not yet taken Physics 2 or Computer Skills for Engineers." data-ar="لم تأخذ فيزياء 2 أو مهارات الحاسوب للمهندسين بعد.">You have not yet taken Physics 2 or Computer Skills for Engineers.</div>
+        <div class="option-label" data-en="Standard" data-ar="القياسي">Standard</div>
         <div class="courses-row">
-          <span class="course-pill primary">Physics 2</span>
-          <span class="course-pill primary">Computer Skills for Engineers</span>
-          <span class="course-pill primary">Elective</span>
+          <span class="course-pill primary" data-en="Physics 2" data-ar="فيزياء 2">Physics 2</span>
+          <span class="course-pill primary" data-en="Computer Skills for Engineers" data-ar="مهارات الحاسوب للمهندسين">Computer Skills for Engineers</span>
+          <span class="course-pill primary" data-en="Elective" data-ar="مادة اختيارية">Elective</span>
         </div>
-        <div class="option-label">Hard Variant</div>
+        <div class="option-label" data-en="Hard Variant" data-ar="النسخة الصعبة">Hard Variant</div>
         <div class="courses-row">
-          <span class="course-pill primary">Physics 2</span>
-          <span class="course-pill primary">Computer Skills for Engineers</span>
-          <span class="course-pill warning-pill">Digital Logic</span>
+          <span class="course-pill primary" data-en="Physics 2" data-ar="فيزياء 2">Physics 2</span>
+          <span class="course-pill primary" data-en="Computer Skills for Engineers" data-ar="مهارات الحاسوب للمهندسين">Computer Skills for Engineers</span>
+          <span class="course-pill warning-pill" data-en="Digital Logic" data-ar="المنطق الرقمي">Digital Logic</span>
         </div>
-        <div class="scenario-rationale">
-          Two gateway courses simultaneously, plus an elective. This is a debt-clearing semester — the goal is to satisfy prerequisites cleanly, not to impress. Attempt the hard variant only if the standard load feels well within your capacity by Week 2.
-        </div>
+        <div class="scenario-rationale" data-en="Two gateway courses simultaneously, plus an elective. This is a debt-clearing semester — the goal is to satisfy prerequisites cleanly, not to impress. Attempt the hard variant only if the standard load feels well within your capacity by Week 2." data-ar="مادتان بوابتان في وقت واحد، بالإضافة إلى مادة اختيارية. هذا فصل لسداد الديون الأكاديمية — الهدف هو تحقيق المتطلبات بشكل نظيف، لا الإبهار. جرّب النسخة الصعبة فقط إذا كان الحمل القياسي يبدو في متناولك بسهولة بحلول الأسبوع الثاني.">Two gateway courses simultaneously, plus an elective. This is a debt-clearing semester — the goal is to satisfy prerequisites cleanly, not to impress.</div>
       </div>
 
     </div>
@@ -876,42 +389,34 @@
 <!-- COURSE NOTES -->
 <section id="courses">
   <div class="container">
-    <div class="reveal"><div class="section-title">What You Need to Know About These Courses</div></div>
-    <div class="reveal"><div class="section-subtitle">One-line engineering assessment of every course in this plan</div></div>
+    <div class="reveal"><div class="section-title" data-en="What You Need to Know About These Courses" data-ar="ما تحتاج معرفته عن هذه المواد">What You Need to Know About These Courses</div></div>
+    <div class="reveal"><div class="section-subtitle" data-en="One-line engineering assessment of every course in this plan" data-ar="تقييم هندسي مختصر لكل مادة في هذه الخطة">One-line engineering assessment of every course in this plan</div></div>
     <div class="reveal"><div class="section-divider"></div></div>
-
     <div class="courses-grid">
-
       <div class="card course-card reveal stagger-1">
-        <div class="course-card-name"><span class="course-dot"></span>Calculus 3</div>
-        <div class="course-card-desc">Extends Calculus 1 &amp; 2 into multivariable territory — essential for fields, electromagnetics, and signals. Every serious ECE topic you encounter in Year 3 and 4 will silently assume this material.</div>
+        <div class="course-card-name"><span class="course-dot"></span><span data-en="Calculus 3" data-ar="تفاضل وتكامل 3">Calculus 3</span></div>
+        <div class="course-card-desc" data-en="Extends Calculus 1 &amp; 2 into multivariable territory — essential for fields, electromagnetics, and signals. Every serious ECE topic in Year 3 and 4 will silently assume this material." data-ar="تمتد تفاضل وتكامل 1 و2 إلى المتغيرات المتعددة — ضرورية للحقول والكهرومغناطيسية والإشارات. كل موضوع هندسي جدي في السنتين الثالثة والرابعة سيفترض هذه المادة ضمنياً.">Extends Calculus 1 &amp; 2 into multivariable territory — essential for fields, electromagnetics, and signals. Every serious ECE topic in Year 3 and 4 will silently assume this material.</div>
       </div>
-
       <div class="card course-card reveal stagger-2">
-        <div class="course-card-name"><span class="course-dot"></span>Electric Circuits</div>
-        <div class="course-card-desc">Opens the most future courses in the ECE tree — prioritize this above all else. Electronics, Power Systems, Electromagnetics, and Signals all depend on the intuition you build here. Do not take it passively.</div>
+        <div class="course-card-name"><span class="course-dot"></span><span data-en="Electric Circuits" data-ar="الدوائر الكهربائية">Electric Circuits</span></div>
+        <div class="course-card-desc" data-en="Opens the most future courses in the ECE tree — prioritize this above all else. Electronics, Power Systems, Electromagnetics, and Signals all depend on the intuition you build here. Do not take it passively." data-ar="يفتح أكثر المواد اللاحقة في شجرة الهندسة — أولوها فوق كل شيء. الإلكترونيات وأنظمة الطاقة والكهرومغناطيسية والإشارات تعتمد على الحدس الذي تبنيه هنا. لا تأخذها بشكل سلبي.">Opens the most future courses in the ECE tree — prioritize this above all else. Electronics, Power Systems, Electromagnetics, and Signals all depend on the intuition you build here.</div>
       </div>
-
       <div class="card course-card reveal stagger-3">
-        <div class="course-card-name"><span class="course-dot"></span>Digital Logic</div>
-        <div class="course-card-desc">Foundational for computer architecture — understand it deeply, do not memorise. Every gate, flip-flop, and state machine you study here will reappear in a more complex form in CAO, VLSI, and embedded systems.</div>
+        <div class="course-card-name"><span class="course-dot"></span><span data-en="Digital Logic" data-ar="المنطق الرقمي">Digital Logic</span></div>
+        <div class="course-card-desc" data-en="Foundational for computer architecture — understand it deeply, do not memorise. Every gate, flip-flop, and state machine you study here will reappear in a more complex form in CAO, VLSI, and embedded systems." data-ar="أساسية لهندسة الحاسوب — افهمها بعمق، لا تحفظها. كل بوابة ومقلب وآلة حالات ستدرسها هنا ستظهر مجدداً بشكل أكثر تعقيداً في CAO وVLSI والأنظمة المدمجة.">Foundational for computer architecture — understand it deeply, do not memorise. Every gate, flip-flop, and state machine here will reappear in CAO, VLSI, and embedded systems.</div>
       </div>
-
       <div class="card course-card reveal stagger-4">
-        <div class="course-card-name"><span class="course-dot"></span>Physics Lab 1 or 2</div>
-        <div class="course-card-desc">Low-risk add-on — manageable alongside your main load if you study consistently. The credit-to-effort ratio is favourable in summer. Useful for building physical intuition before you see the theory formally.</div>
+        <div class="course-card-name"><span class="course-dot"></span><span data-en="Physics Lab 1 or 2" data-ar="مختبر فيزياء 1 أو 2">Physics Lab 1 or 2</span></div>
+        <div class="course-card-desc" data-en="Low-risk add-on — manageable alongside your main load if you study consistently. The credit-to-effort ratio is favourable in summer. Useful for building physical intuition before you see the theory formally." data-ar="إضافة قليلة المخاطرة — قابلة للإدارة جانب حملك الرئيسي إذا درست بانتظام. نسبة الاعتمادات إلى الجهد مواتية في الصيف. مفيدة لبناء الحدس الفيزيائي قبل رؤية النظرية رسمياً.">Low-risk add-on — manageable alongside your main load if you study consistently. The credit-to-effort ratio is favourable in summer.</div>
       </div>
-
       <div class="card course-card reveal stagger-5">
-        <div class="course-card-name"><span class="course-dot"></span>Computer Skills for Engineers</div>
-        <div class="course-card-desc">Must be cleared early — it is a gateway course with downstream registration dependencies. Delaying it compounds into scheduling problems that affect later semesters, not just this one.</div>
+        <div class="course-card-name"><span class="course-dot"></span><span data-en="Computer Skills for Engineers" data-ar="مهارات الحاسوب للمهندسين">Computer Skills for Engineers</span></div>
+        <div class="course-card-desc" data-en="Must be cleared early — it is a gateway course with downstream registration dependencies. Delaying it compounds into scheduling problems that affect later semesters, not just this one." data-ar="يجب إنهاؤها مبكراً — إنها مادة بوابة لها تبعيات تسجيل لاحقة. تأخيرها يتراكم إلى مشاكل جدولة تؤثر على الفصول اللاحقة، ليس هذا الفصل فقط.">Must be cleared early — it is a gateway course with downstream registration dependencies. Delaying it compounds into scheduling problems that affect later semesters.</div>
       </div>
-
       <div class="card course-card reveal stagger-6">
-        <div class="course-card-name"><span class="course-dot"></span>Elective</div>
-        <div class="course-card-desc">Strategic breathing room — choose something you can genuinely excel in to protect your GPA. This is not slacking; it is load-balancing while you are still building engineering study habits from scratch.</div>
+        <div class="course-card-name"><span class="course-dot"></span><span data-en="Elective" data-ar="المادة الاختيارية">Elective</span></div>
+        <div class="course-card-desc" data-en="Strategic breathing room — choose something you can genuinely excel in to protect your GPA. This is not slacking; it is load-balancing while you are still building engineering study habits from scratch." data-ar="مساحة تنفس استراتيجية — اختر شيئاً يمكنك التفوق فيه بالفعل لحماية معدلك التراكمي. هذا ليس تهاوناً؛ إنه موازنة للحمل بينما لا تزال تبني عادات الدراسة الهندسية من الصفر.">Strategic breathing room — choose something you can genuinely excel in to protect your GPA. This is not slacking; it is load-balancing.</div>
       </div>
-
     </div>
   </div>
 </section>
@@ -919,43 +424,25 @@
 <!-- WARNINGS -->
 <section id="warnings">
   <div class="container">
-    <div class="reveal"><div class="section-title">Courses First-Years Must Not Take</div></div>
-    <div class="reveal"><div class="section-subtitle">These are not hard — they require maturity you have not yet had time to build</div></div>
+    <div class="reveal"><div class="section-title" data-en="Courses First-Years Must Not Take" data-ar="مواد يجب على طلاب السنة الأولى عدم أخذها">Courses First-Years Must Not Take</div></div>
+    <div class="reveal"><div class="section-subtitle" data-en="These are not hard — they require maturity you have not yet had time to build" data-ar="هذه المواد ليست صعبة فحسب — بل تتطلب نضجاً أكاديمياً لم تُتَح لك الفرصة لبنائه بعد">These are not hard — they require maturity you have not yet had time to build</div></div>
     <div class="reveal"><div class="section-divider"></div></div>
-
     <div class="warning-panel reveal">
       <div class="warning-header">
         <span class="warning-icon">⛔</span>
-        <div class="warning-header-text">Do Not Take as a First-Year</div>
+        <div class="warning-header-text" data-en="Do Not Take as a First-Year" data-ar="لا تأخذها كطالب سنة أولى">Do Not Take as a First-Year</div>
       </div>
-
       <div class="warning-cards">
         <div class="warning-course-card">
-          <div class="warning-course-name">Computer Architecture &amp; Organization 1 (CAO1)</div>
-          <div class="warning-course-desc">
-            You do not yet have the engineering mindset or problem-solving foundation this course demands.
-            Taking it now risks either failing or extracting zero lasting knowledge — and this course is foundational
-            to everything that follows in the computer engineering track. A weak pass here will cost you heavily in CAO2,
-            Microprocessors, and Embedded Systems.
-          </div>
+          <div class="warning-course-name" data-en="Computer Architecture &amp; Organization 1 (CAO1)" data-ar="هندسة الحاسوب وتنظيمه 1 (CAO1)">Computer Architecture &amp; Organization 1 (CAO1)</div>
+          <div class="warning-course-desc" data-en="You do not yet have the engineering mindset or problem-solving foundation this course demands. Taking it now risks either failing or extracting zero lasting knowledge — and this course is foundational to everything that follows. A weak pass here will cost you heavily in CAO2, Microprocessors, and Embedded Systems." data-ar="لا تمتلك بعد العقلية الهندسية أو أساس حل المسائل الذي تتطلبه هذه المادة. أخذها الآن يُخاطر إما بالرسوب أو باستخلاص معرفة سطحية لا قيمة لها — وهي أساسية لكل ما يليها. نجاح ضعيف هنا سيكلفك كثيراً في CAO2 والمعالجات الدقيقة والأنظمة المدمجة.">You do not yet have the engineering mindset or problem-solving foundation this course demands. Taking it now risks either failing or extracting zero lasting knowledge — and this course is foundational to everything that follows.</div>
         </div>
         <div class="warning-course-card">
-          <div class="warning-course-name">Probability and Random Processes</div>
-          <div class="warning-course-desc">
-            This course requires mathematical maturity built over multiple semesters. Attempting it in your first year
-            will result in surface-level understanding of a course that underpins communications, signal processing,
-            and machine learning — three of the highest-value domains in the ECE field. The loss of depth here
-            echoes for years.
-          </div>
+          <div class="warning-course-name" data-en="Probability and Random Processes" data-ar="الاحتمالات والعمليات العشوائية">Probability and Random Processes</div>
+          <div class="warning-course-desc" data-en="This course requires mathematical maturity built over multiple semesters. Attempting it in your first year will result in surface-level understanding of a course that underpins communications, signal processing, and machine learning. The loss of depth here echoes for years." data-ar="تتطلب هذه المادة نضجاً رياضياً مبنياً على عدة فصول دراسية. محاولتها في سنتك الأولى ستُفضي إلى فهم سطحي لمادة تُعدّ ركيزة الاتصالات ومعالجة الإشارات والتعلم الآلي. الخسارة في العمق هنا تتردد لسنوات.">This course requires mathematical maturity built over multiple semesters. Attempting it in your first year will result in surface-level understanding of a course that underpins communications, signal processing, and machine learning.</div>
         </div>
       </div>
-
-      <div class="warning-personal">
-        Even the student who authored this plan — known for taking the department's hardest semesters —
-        did not attempt these as a first-year. That decision was deliberate, and it paid off. Maturity
-        in engineering is not about how fast you move; it is about how well you understand each layer
-        before building the next one on top of it.
-      </div>
+      <div class="warning-personal" data-en="Even the student who authored this plan — known for taking the department's hardest semesters — did not attempt these as a first-year. That decision was deliberate, and it paid off. Maturity in engineering is not about how fast you move; it is about how well you understand each layer before building the next one on top of it." data-ar="حتى الطالب الذي أعدّ هذه الخطة — المعروف بأخذ أصعب الفصول في القسم — لم يجرؤ على هذه المواد كطالب سنة أولى. كان ذلك قراراً مدروساً، وقد آتى ثماره. النضج في الهندسة لا يُقاس بسرعة تقدمك؛ بل بعمق فهمك لكل طبقة قبل أن تبني فوقها.">Even the student who authored this plan — known for taking the department's hardest semesters — did not attempt these as a first-year. That decision was deliberate, and it paid off.</div>
     </div>
   </div>
 </section>
@@ -963,36 +450,28 @@
 <!-- MINDSET -->
 <section id="mindset">
   <div class="container">
-    <div class="reveal"><div class="section-title">Engineering is Not Science Faculty</div></div>
-    <div class="reveal"><div class="section-subtitle">The rules have changed — update your method before Week 1 begins</div></div>
+    <div class="reveal"><div class="section-title" data-en="Engineering is Not Science Faculty" data-ar="الهندسة ليست كلية العلوم">Engineering is Not Science Faculty</div></div>
+    <div class="reveal"><div class="section-subtitle" data-en="The rules have changed — update your method before Week 1 begins" data-ar="القواعد تغيّرت — حدّث أسلوبك قبل أن يبدأ الأسبوع الأول">The rules have changed — update your method before Week 1 begins</div></div>
     <div class="reveal"><div class="section-divider"></div></div>
-
     <div class="mindset-panel reveal">
-      <div class="mindset-bold">Your Study Approach Must Change.</div>
-      <p class="mindset-body">
-        The techniques that earned you high grades in science-track courses — reading the night before, cramming before exams —
-        will cause you to fail or suffer significantly in engineering. The material is cumulative, problem-solving-heavy,
-        and cannot be compressed into short sessions. Consistent, structured, weekly study is not optional —
-        it is the only method that works. The engineer who studies two hours every day outperforms the one who studies
-        fourteen hours the night before the exam, every semester, without exception.
-      </p>
+      <div class="mindset-bold" data-en="Your Study Approach Must Change." data-ar="أسلوبك في الدراسة يجب أن يتغير.">Your Study Approach Must Change.</div>
+      <p class="mindset-body" data-en="The techniques that earned you high grades in science-track courses — reading the night before, cramming before exams — will cause you to fail or suffer significantly in engineering. The material is cumulative, problem-solving-heavy, and cannot be compressed into short sessions. Consistent, structured, weekly study is not optional — it is the only method that works. The engineer who studies two hours every day outperforms the one who studies fourteen hours the night before the exam, every semester, without exception." data-ar="الأساليب التي منحتك درجات عالية في الثانوية أو كلية العلوم — القراءة قبل الامتحان بيوم، والحفظ المكثف — ستُسبب لك الرسوب أو المعاناة الشديدة في الهندسة. المادة تراكمية، مثقلة بحل المسائل، ولا يمكن ضغطها في جلسات قصيرة. الدراسة المنتظمة والمنظمة أسبوعياً ليست اختيارية — هي الأسلوب الوحيد الذي يجدي. المهندس الذي يدرس ساعتين يومياً يتفوق على من يدرس أربع عشرة ساعة قبل الامتحان، في كل فصل دراسي، بلا استثناء.">The techniques that earned you high grades in science-track courses — reading the night before, cramming before exams — will cause you to fail or suffer significantly in engineering. The material is cumulative, problem-solving-heavy, and cannot be compressed into short sessions. Consistent, structured, weekly study is not optional — it is the only method that works.</p>
     </div>
-
     <div class="principles-grid">
       <div class="card principle-card reveal stagger-1">
         <div class="principle-num">01</div>
-        <div class="principle-title">Consistency Over Intensity</div>
-        <div class="principle-desc">Study every day, not in bursts before exams. Engineering material is built in layers — each session reinforces the previous one. A single overnight session cannot replicate this compounding effect.</div>
+        <div class="principle-title" data-en="Consistency Over Intensity" data-ar="الانتظام على الكثافة">Consistency Over Intensity</div>
+        <div class="principle-desc" data-en="Study every day, not in bursts before exams. Engineering material is built in layers — each session reinforces the previous one. A single overnight session cannot replicate this compounding effect." data-ar="ادرس كل يوم، لا في موجات قبل الامتحانات. المادة الهندسية مبنية في طبقات — كل جلسة تُعزز السابقة. جلسة ليلية واحدة لا يمكنها محاكاة هذا التراكم.">Study every day, not in bursts before exams. Engineering material is built in layers — each session reinforces the previous one.</div>
       </div>
       <div class="card principle-card reveal stagger-2">
         <div class="principle-num">02</div>
-        <div class="principle-title">Problem-First Learning</div>
-        <div class="principle-desc">Do the problems before you feel ready. Waiting until you fully understand the theory before attempting problems is an engineering student's most expensive mistake. The confusion you hit in problems is exactly what clarifies the theory.</div>
+        <div class="principle-title" data-en="Problem-First Learning" data-ar="التعلم بالمسائل أولاً">Problem-First Learning</div>
+        <div class="principle-desc" data-en="Do the problems before you feel ready. Waiting until you fully understand the theory before attempting problems is an engineering student's most expensive mistake. The confusion you hit in problems is exactly what clarifies the theory." data-ar="حل المسائل قبل أن تشعر بالجاهزية. الانتظار حتى تفهم النظرية كاملاً قبل محاولة المسائل هو أغلى أخطاء طالب الهندسة. الحيرة التي تصطدم بها في المسائل هي بالضبط ما يوضّح النظرية.">Do the problems before you feel ready. The confusion you hit in problems is exactly what clarifies the theory.</div>
       </div>
       <div class="card principle-card reveal stagger-3">
         <div class="principle-num">03</div>
-        <div class="principle-title">Build Foundations</div>
-        <div class="principle-desc">Every course you skip understanding in will cost you two courses later. A grade earned without understanding is a liability — it will appear as a gap precisely when the stakes are highest, in your third or fourth year.</div>
+        <div class="principle-title" data-en="Build Foundations" data-ar="ابنِ الأساسيات">Build Foundations</div>
+        <div class="principle-desc" data-en="Every course you skip understanding in will cost you two courses later. A grade earned without understanding is a liability — it will appear as a gap precisely when the stakes are highest, in your third or fourth year." data-ar="كل مادة تتخطى فهمها ستُكلفك مادتين لاحقاً. الدرجة المكتسبة بدون فهم هي عبء — ستظهر كفجوة في اللحظات الأكثر أهمية، في سنتك الثالثة أو الرابعة.">Every course you skip understanding in will cost you two courses later. A grade earned without understanding is a liability.</div>
       </div>
     </div>
   </div>
@@ -1000,21 +479,18 @@
 
 </main>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-logo"><span class="z-letter">Z</span><span class="rest-letters">enon</span></div>
   <div class="footer-copy">
     &copy; 2026 Zenon Engineering Club<br>
-    Academic content by <span>Eng. Mohammad H. Tailakh</span><br>
-    Produced in collaboration with Zenon Engineering Club<br>
-    <span style="color:var(--dim); font-size:0.68em; font-style:italic;">
-      Eng. Mohammad H. Tailakh is an independent contributor and is not a member of Zenon Engineering Club
-    </span>
+    <span data-en="Academic content by" data-ar="المحتوى الأكاديمي بقلم">Academic content by</span> <span>Eng. Mohammad H. Tailakh</span><br>
+    <span data-en="Produced in collaboration with Zenon Engineering Club" data-ar="أُنتج بالتعاون مع نادي زينون الهندسي">Produced in collaboration with Zenon Engineering Club</span><br>
+    <span style="color:var(--dim);font-size:0.68em;font-style:italic;" data-en="Eng. Mohammad H. Tailakh is an independent contributor and is not a member of Zenon Engineering Club" data-ar="م. محمد ح. طيلخ مساهم مستقل وليس عضواً في نادي زينون الهندسي">Eng. Mohammad H. Tailakh is an independent contributor and is not a member of Zenon Engineering Club</span>
   </div>
   <a href="https://t.me/TailakhBot" target="_blank" rel="noopener noreferrer" class="footer-bot">
     <div class="footer-bot-icon">✈️</div>
     <div class="footer-bot-text">
-      <span class="footer-bot-label">Course guides · Labs · Projects</span>
+      <span class="footer-bot-label" data-en="Course guides · Labs · Projects" data-ar="دليل المواد · المختبرات · المشاريع">Course guides · Labs · Projects</span>
       <span class="footer-bot-name">@TailakhBot on Telegram</span>
     </div>
   </a>
@@ -1022,21 +498,26 @@
 
 <script>
   // Scroll-reveal
-  const revealEls = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-      }
-    });
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.07, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  document.querySelectorAll('#hero .reveal').forEach(el => setTimeout(() => el.classList.add('visible'), 100));
 
-  revealEls.forEach(el => observer.observe(el));
-
-  // Hero immediate reveal
-  document.querySelectorAll('#hero .reveal').forEach(el => {
-    setTimeout(() => el.classList.add('visible'), 100);
-  });
+  // Language toggle
+  let lang = 'en';
+  function toggleLang() {
+    lang = lang === 'en' ? 'ar' : 'en';
+    const html = document.documentElement;
+    const btn = document.getElementById('langToggle');
+    html.setAttribute('lang', lang);
+    html.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+    btn.textContent = lang === 'ar' ? 'English' : 'عربي';
+    document.title = lang === 'ar' ? 'زينون — خطة الفصل الصيفي' : 'Zenon — First-Year CE Summer Semester Plan';
+    document.querySelectorAll('[data-en][data-ar]').forEach(el => {
+      el.innerHTML = el.getAttribute('data-' + lang);
+    });
+  }
 </script>
 </body>
 </html>
