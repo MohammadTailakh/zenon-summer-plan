@@ -61,6 +61,7 @@
     top: 0; left: 0; right: 0;
     z-index: 100;
     background: rgba(13,13,13,0.92);
+    -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
     padding: 0 2rem;
@@ -133,6 +134,7 @@
   /* ── HERO ── */
   #hero {
     min-height: 100vh;
+    min-height: 100svh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -176,6 +178,7 @@
     height: 4px;
     background: linear-gradient(90deg, var(--crimson) 0%, #6B1212 100%);
     border-radius: 3px;
+    -webkit-clip-path: polygon(0 0, 100% 0, 97% 100%, 3% 100%);
     clip-path: polygon(0 0, 100% 0, 97% 100%, 3% 100%);
   }
 
@@ -208,9 +211,30 @@
   .hero-byline {
     font-size: 0.82rem;
     color: var(--muted);
-    margin-bottom: 0.6rem;
+    margin-bottom: 0.5rem;
   }
-  .hero-byline strong { color: var(--text); }
+  .hero-author-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.25rem, 3.5vw, 1.9rem);
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: 0.04em;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  .hero-author-name span { color: var(--crimson); }
+  .hero-contributor-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--dim);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px;
+    padding: 0.25rem 1rem;
+    display: inline-block;
+    margin-top: 0.4rem;
+    margin-bottom: 1.2rem;
+  }
 
   .hero-note {
     font-size: 0.73rem;
@@ -613,11 +637,13 @@
 
     <div class="reveal stagger-1">
       <h1 class="hero-title">First-Year Computer Engineering<br><span>Summer Semester Plan</span></h1>
-      <div class="hero-subtitle">Academic Roadmap &nbsp;·&nbsp; Summer 2025</div>
+      <div class="hero-subtitle">Academic Roadmap &nbsp;·&nbsp; Summer 2026</div>
     </div>
 
     <div class="reveal stagger-2">
-      <p class="hero-byline">Crafted by <strong>Eng. Mohammad H. Tailakh</strong> in collaboration with Zenon</p>
+      <div class="hero-byline">Crafted in collaboration with Zenon</div>
+      <span class="hero-author-name"><span>Eng.</span> Mohammad H. Tailakh</span>
+      <div class="hero-contributor-label">External Academic Contributor</div>
       <div class="hero-note">
         This plan is authored by a student recognized for taking the most demanding course combinations
         in the department — these recommendations are earned, not theoretical.
@@ -935,7 +961,7 @@
 <footer>
   <div class="footer-logo"><span class="z-letter">Z</span><span class="rest-letters">enon</span></div>
   <div class="footer-copy">
-    &copy; 2025 Zenon Engineering Club<br>
+    &copy; 2026 Zenon Engineering Club<br>
     Academic Plan authored by <span>Eng. Mohammad H. Tailakh</span><br>
     <span style="color:var(--dim); font-size:0.68em; font-style:italic;">
       In collaboration with the Department of Computer Engineering
